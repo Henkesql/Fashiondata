@@ -64,7 +64,7 @@ Customer → PLACED → Order → CONTAINS → Product
 
 ---
 
-## Example Cypher Queries
+## Example Cypher Query
 
 ### Top Purchased Products
 
@@ -73,3 +73,10 @@ MATCH (o:Order)-[:CONTAINS]->(p:Products)
 RETURN p.BrandName, count(o) AS purchases
 ORDER BY purchases DESC
 LIMIT 10;
+```
+
+---
+
+## Conclusion
+
+This project demonstrates how Apache Spark can be used for big data integration and processing, while a graph database can be used to analyze relationships between entities in an e-commerce system.
