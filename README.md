@@ -52,6 +52,29 @@ A Neo4j graph database was used to analyze relationships between entities.
 
 ## Analysis
 
+## Graph Database Analysis (Neo4j)
+
+Neo4j was used to analyze relationships between customers, orders, and products.
+
+Graph model:
+
+Customer → PLACED → Order → CONTAINS → Product
+
+Example Cypher queries:
+
+Top purchased products:
+
+MATCH (o:Order)-[:CONTAINS]->(p:Products)
+RETURN p.BrandName, count(o) AS purchases
+ORDER BY purchases DESC
+LIMIT 10;
+
+Customer purchase relationships:
+
+MATCH (c:Customer)-[:PLACED]->(o:Order)-[:CONTAINS]->(p:Products)
+RETURN c,o,p
+LIMIT 20;
+
 Example analyses performed:
 
 - identifying the most popular products
